@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccf53ce4-c0ca-4607-9b1f-c8457eb2b7f4" name="Changes" comment="完成了save功能">
-      <change afterPath="$PROJECT_DIR$/eatAll.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enterDen.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/101.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/102.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/103.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/104.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessDemo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChessDemo/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessDemo/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChessDemo/controller/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessDemo/game1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChessDemo/game1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessDemo/model/Chessboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChessDemo/model/Chessboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/game1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resource/game1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Chessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Chessboard.java" afterDir="false" />
-    </list>
+    <list default="true" id="ccf53ce4-c0ca-4607-9b1f-c8457eb2b7f4" name="Changes" comment="完成了关于展示是txt文本的准备" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685270004556</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="完成了关于展示是txt文本的准备">
+      <created>1685282987910</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685282987910</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +129,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="中道崩殂" />
     <MESSAGE value="完成了save功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成了save功能" />
+    <MESSAGE value="完成了关于展示是txt文本的准备" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了关于展示是txt文本的准备" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
