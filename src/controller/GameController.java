@@ -18,6 +18,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 /**
  * Controller is the connection between model and view,
  * when a Controller receive a request from a view, the Controller
@@ -169,11 +171,13 @@ public class GameController extends JFrame implements GameListener {
     }
 
     private void redWin() {
-        System.out.println("redd win!");
+        System.out.println("red win!");
+        showMessageDialog(this, "Red wins!");
     }
 
     private void blueWin() {
         System.out.println("blue win!");
+        showMessageDialog(this, "Blue wins!");
     }
 
     // click a cell with a chess
@@ -237,19 +241,71 @@ public class GameController extends JFrame implements GameListener {
     }
 
     public void loadGameFromFile(String path) {
-        try {
-            List<String> lines = Files.readAllLines(Path.of(path));
-            //TODO : checking wrong
-            for (String s : lines) {
-                System.out.println(s);
+        String str = "";
+        for (int i = path.length(); i > path.length() - 3; i--) {
+            str += path.charAt(i - 1);
+        }
+        if (!str.equals("txt")) {
+            showMessageDialog(this, "error101");
+            return;
+        } else {
+            try {
+                List<String> lines = Files.readAllLines(Path.of(path));
+                //TODO : checking wrong
+                //格式错误
+
+                if (lines.get(0).length() < 7) {
+                    showMessageDialog(this, "error102");
+                    return;
+                } else {
+                    boolean b = false;
+                    Outer:
+                    for (int i = 0; i < 9; i++) {
+                        for (int j = 0; j < lines.get(0).length(); j++) {
+                            if (lines.get(i).charAt(j) != '0' &&
+                                    lines.get(i).charAt(j) != '1' &&
+                                    lines.get(i).charAt(j) != '2' &&
+                                    lines.get(i).charAt(j) != '3' &&
+                                    lines.get(i).charAt(j) != '4' &&
+                                    lines.get(i).charAt(j) != '5' &&
+                                    lines.get(i).charAt(j) != '6' &&
+                                    lines.get(i).charAt(j) != '7' &&
+                                    lines.get(i).charAt(j) != '8' &&
+                                    lines.get(i).charAt(j) != '9' &&
+                                    lines.get(i).charAt(j) != 'a' &&
+                                    lines.get(i).charAt(j) != 'b' &&
+                                    lines.get(i).charAt(j) != 'c' &&
+                                    lines.get(i).charAt(j) != 'd' &&
+                                    lines.get(i).charAt(j) != 'e' &&
+                                    lines.get(i).charAt(j) != 'f' &&
+                                    lines.get(i).charAt(j) != 'g' &&
+                                    lines.get(i).charAt(j) != 'h') {
+                                showMessageDialog(this, "error103");
+                                return;
+                            }
+                        }
+                    }
+                }
+                for (String s : lines) {
+                    System.out.println(s);
+                }
+                setTurn(Integer.parseInt(lines.get(9)) - 1);
+                Turn();
+                if (lines.get(10).equals("BLUE")) {
+                    setCurrentPlayer(PlayerColor.BLUE);
+                } else if (lines.get(10).equals("RED")) {
+                    setCurrentPlayer(PlayerColor.RED);
+                } else {
+                    showMessageDialog(this, "error104");
+                }
+                model.removeAllPieces();
+                model.initPieces(lines);
+                view.removeAllPieces();
+                view.initiateChessComponent(model);
+                view.repaint();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-            model.removeAllPieces();
-            model.initPieces(lines);
-            view.removeAllPieces();
-            view.initiateChessComponent(model);
-            view.repaint();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -333,6 +389,8 @@ public class GameController extends JFrame implements GameListener {
             lines.add(s);
             s = "";
         }
+        lines.add(Integer.toString(getTurn()));
+        lines.add(String.valueOf(getCurrentPlayer()));
         return lines;
     }
 

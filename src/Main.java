@@ -1,5 +1,6 @@
 import controller.GameController;
 import model.Chessboard;
+//import view.Begin;
 import view.ChessGameFrame;
 
 import javax.swing.*;
@@ -22,6 +23,8 @@ public class Main {
             audioPlayWave.start();
             @SuppressWarnings("unused")
             int musicOpenLab = 1;
+//            Begin beginFrame = new Begin();
+//            beginFrame.setVisible(true);
         });
     }
 }

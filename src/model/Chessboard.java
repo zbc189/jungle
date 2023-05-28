@@ -1,5 +1,7 @@
 package model;
 
+import controller.GameController;
+
 import java.util.List;
 
 /**
