@@ -1,17 +1,19 @@
 package controller;
+
 import listener.GameListener;
-import model.Constant;
-import model.PlayerColor;
-import model.Chessboard;
-import model.ChessboardPoint;
+import model.*;
 import view.CellComponent;
 import view.ChessComponent;
 import view.ChessboardComponent;
 
 import javax.swing.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,13 +24,13 @@ import java.util.Set;
  * analyzes and then hands over to the model for processing
  * [in this demo the request methods are onPlayerClickCell() and onPlayerClickChessPiece()]
  */
-public class GameController extends JFrame  implements GameListener {
+public class GameController extends JFrame implements GameListener {
 
 
     private Chessboard model;
     private ChessboardComponent view;
     private PlayerColor currentPlayer;
-    private int turn=1;
+    private int turn = 1;
 
     public PlayerColor getCurrentPlayer() {
         return currentPlayer;
@@ -64,6 +66,7 @@ public class GameController extends JFrame  implements GameListener {
     public JLabel getStatusLabel1() {
         return statusLabel1;
     }
+
     private final Set<ChessboardPoint> riverCell = new HashSet<>();
     private final Set<ChessboardPoint> trapCell = new HashSet<>();
     private final Set<ChessboardPoint> denCell = new HashSet<>();
@@ -122,23 +125,23 @@ public class GameController extends JFrame  implements GameListener {
         currentPlayer = currentPlayer == PlayerColor.BLUE ? PlayerColor.RED : PlayerColor.BLUE;
         statusLabel1.setText(currentPlayer.name());
     }
-    private void Turn(){
-        if(currentPlayer==PlayerColor.BLUE){
-        turn++;
-        statusLabel2.setText("Turn: "+String.valueOf(turn));
+
+    private void Turn() {
+        if (currentPlayer == PlayerColor.BLUE) {
+            turn++;
+            statusLabel2.setText("Turn: " + String.valueOf(turn));
         }
     }
 
     private void win() {
         // TODO: Check the board if there is a winner
-        if (model.blueWin()){
+        if (model.blueWin()) {
             blueWin();
         }
-        if (model.redWin()){
+        if (model.redWin()) {
             redWin();
         }
     }
-
 
 
     // click an empty cell
@@ -146,7 +149,7 @@ public class GameController extends JFrame  implements GameListener {
     public void onPlayerClickCell(ChessboardPoint point, CellComponent component) {
         if (selectedPoint != null && model.isValidMove(selectedPoint, point)) {
             model.moveChessPiece(selectedPoint, point);
-            view.setChessComponentAtGrid(point,view.removeChessComponentAtGrid(selectedPoint));
+            view.setChessComponentAtGrid(point, view.removeChessComponentAtGrid(selectedPoint));
             selectedPoint = null;
             swapColor();
             Turn();
@@ -164,6 +167,7 @@ public class GameController extends JFrame  implements GameListener {
             }
         }
     }
+
     private void redWin() {
         System.out.println("redd win!");
     }
@@ -223,11 +227,12 @@ public class GameController extends JFrame  implements GameListener {
         view.initiateChessComponent(model);
         view.repaint();
     }
-    public void ChangeBackground(){
+
+    public void ChangeBackground() {
         view.changeBackground();
     }
 
-    public void RegretGame(){
+    public void RegretGame() {
 
     }
 
@@ -247,8 +252,88 @@ public class GameController extends JFrame  implements GameListener {
             throw new RuntimeException(e);
         }
     }
-    public void LoadFileFromGame(String path){
 
+    public void writeFileFromGame(String path) {
+        try {
+            FileWriter fileWriter = new FileWriter(path);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            List<String> lines = this.convertToList();
+            for (String line : lines) {
+                writer.write(line);
+                writer.write(System.lineSeparator());
+            }
+            writer.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<String> convertToList() {
+        List<String> lines = new ArrayList<>();
+        String s = "";
+        for (int i = 0; i < Constant.CHESSBOARD_ROW_SIZE.getNum(); i++) {
+            for (int j = 0; j < Constant.CHESSBOARD_COL_SIZE.getNum(); j++) {
+                if (model.getChessPieceAt(new ChessboardPoint(i, j)) != null && model.getChessPieceAt(new ChessboardPoint(i, j)).getOwner() == PlayerColor.BLUE) {
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Rat")) {
+                        s += "a";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Cat")) {
+                        s += "b";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Dog")) {
+                        s += "c";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Wolf")) {
+                        s += "d";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Leopard")) {
+                        s += "e";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Tiger")) {
+                        s += "f";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Lion")) {
+                        s += "g";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Elephant")) {
+                        s += "h";
+                    }
+                } else if (model.getChessPieceAt(new ChessboardPoint(i, j)) != null && model.getChessPieceAt(new ChessboardPoint(i, j)).getOwner() == PlayerColor.RED) {
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Rat")) {
+                        s += "1";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Cat")) {
+                        s += "2";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Dog")) {
+                        s += "3";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Wolf")) {
+                        s += "4";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Leopard")) {
+                        s += "5";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Tiger")) {
+                        s += "6";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Lion")) {
+                        s += "7";
+                    }
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)).getName().equals("Elephant")) {
+                        s += "8";
+                    }
+                } else {
+                    if (model.getChessPieceAt(new ChessboardPoint(i, j)) == null) {
+                        s += '0';
+                    }
+                }
+            }
+            lines.add(s);
+            s = "";
+        }
+        return lines;
     }
 
 

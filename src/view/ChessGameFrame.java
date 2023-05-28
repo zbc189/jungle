@@ -211,7 +211,7 @@ public class ChessGameFrame extends JFrame {
             System.out.println("Click load");
             String path = JOptionPane.showInputDialog(this, "Input Path here");
             System.out.println(path);
-            controller.LoadFileFromGame(path);
+            controller.writeFileFromGame(path);
         });
     }
     public void setGameController(GameController gameController) {
