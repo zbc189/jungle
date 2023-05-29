@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccf53ce4-c0ca-4607-9b1f-c8457eb2b7f4" name="Changes" comment="添加了undo方法">
-      <change afterPath="$PROJECT_DIR$/resource/cave.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/changebg-button - 副本.tif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/grass.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/load-button.tif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/offerlose-button.tif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/regret-button.tif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/restart-button.tif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/river.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/save-button.tif" afterDir="false" />
+    <list default="true" id="ccf53ce4-c0ca-4607-9b1f-c8457eb2b7f4" name="Changes" comment="更改了按钮图片">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessDemo/view/ChessGameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChessDemo/view/ChessGameFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ChessGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ChessGameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +52,7 @@
       <recent name="model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zbc\Desktop\jungle\CS109-2023-Sping-ChessDemo\resource" />
       <recent name="C:\Users\ASUS\Desktop\CS109-2023-Sping-ChessDemo\resource" />
       <recent name="C:\Users\ASUS\Desktop\CS109-2023-Sping-ChessDemo\src" />
     </key>
@@ -143,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685329566171</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="更改了按钮图片">
+      <created>1685337655098</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685337655098</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +162,8 @@
     <MESSAGE value="完成了save功能" />
     <MESSAGE value="完成了关于展示是txt文本的准备" />
     <MESSAGE value="添加了undo方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加了undo方法" />
+    <MESSAGE value="更改了按钮图片" />
+    <option name="LAST_COMMIT_MESSAGE" value="更改了按钮图片" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
