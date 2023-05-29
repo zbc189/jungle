@@ -52,7 +52,7 @@ public class ChessGameFrame extends JFrame {
         addRestartButton();
         addLoadButton();
         addSaveButton();
-        addRegretButton();
+        addUndoButton();
         addChangeBackgroundButton();
         Image image=new ImageIcon("resource/img.png").getImage();
         image=image.getScaledInstance(1100,810,Image.SCALE_DEFAULT);
@@ -172,18 +172,18 @@ public class ChessGameFrame extends JFrame {
         RestartButton.setFont(new Font("Rockwell", Font.BOLD, 20));
         add(RestartButton);
     }
-        private void addRegretButton() {
-        JButton RegretButton = new JButton("regret");
-        RegretButton.addActionListener((e) -> {
+        private void addUndoButton() {
+        JButton UndoButton = new JButton("undo");
+        UndoButton.addActionListener((e) -> {
             int result = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
            if(result==JOptionPane.YES_OPTION){
-               controller.RegretGame();
+               controller.UndoGame();
            }
         });
-        RegretButton.setLocation(HEIGHT, HEIGHT / 10 + 360);
-        RegretButton.setSize(200, 60);
-        RegretButton.setFont(new Font("Rockwell", Font.BOLD, 20));
-        add(RegretButton);
+        UndoButton.setLocation(HEIGHT, HEIGHT / 10 + 360);
+        UndoButton.setSize(200, 60);
+        UndoButton.setFont(new Font("Rockwell", Font.BOLD, 20));
+        add(UndoButton);
     }
 
 

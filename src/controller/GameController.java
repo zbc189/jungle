@@ -33,6 +33,10 @@ public class GameController extends JFrame implements GameListener {
     private ChessboardComponent view;
     private PlayerColor currentPlayer;
     private int turn = 1;
+    private ChessboardPoint recordSrc;
+    private ChessboardPoint recordTarget;
+    private ChessPiece recordPiece;
+    private boolean chilezi = false;
 
     public PlayerColor getCurrentPlayer() {
         return currentPlayer;
@@ -150,6 +154,9 @@ public class GameController extends JFrame implements GameListener {
     @Override
     public void onPlayerClickCell(ChessboardPoint point, CellComponent component) {
         if (selectedPoint != null && model.isValidMove(selectedPoint, point)) {
+            chilezi = false;
+            recordSrc = selectedPoint;
+            recordTarget = point;
             model.moveChessPiece(selectedPoint, point);
             view.setChessComponentAtGrid(point, view.removeChessComponentAtGrid(selectedPoint));
             selectedPoint = null;
@@ -168,16 +175,6 @@ public class GameController extends JFrame implements GameListener {
                 }
             }
         }
-    }
-
-    private void redWin() {
-        System.out.println("red win!");
-        showMessageDialog(this, "Red wins!");
-    }
-
-    private void blueWin() {
-        System.out.println("blue win!");
-        showMessageDialog(this, "Blue wins!");
     }
 
     // click a cell with a chess
@@ -200,6 +197,10 @@ public class GameController extends JFrame implements GameListener {
                 //todo: capture chess process
 //                selectedPoint = targetPoint;
                 //(src->dest) 将targetPoint(第二个参数)位置设置成selectedPoint(第一个参数)位置的棋子，并移除src位置的棋子
+                chilezi = true;
+                recordSrc = selectedPoint;
+                recordTarget = point;
+                recordPiece = model.getChessPieceAt(point);
                 model.moveChessPiece(selectedPoint, point);
                 //view层
                 view.removeChessComponentAtGrid(point);
@@ -236,7 +237,27 @@ public class GameController extends JFrame implements GameListener {
         view.changeBackground();
     }
 
-    public void RegretGame() {
+    public void UndoGame() {
+        if (!chilezi) {
+            model.moveChessPiece(recordTarget, recordSrc);
+            view.setChessComponentAtGrid(recordSrc, view.removeChessComponentAtGrid(recordTarget));
+            selectedPoint = null;
+            swapColor();
+            turn--;
+            Turn();
+            view.repaint();
+        }else {
+            model.moveChessPiece(recordTarget, recordSrc);
+            model.setChessPiece(recordTarget,recordPiece);
+            view.removeAllPieces();
+            view.initiateChessComponent(model);
+            selectedPoint = null;
+            swapColor();
+            turn--;
+            Turn();
+            view.repaint();
+
+        }
 
     }
 
@@ -393,6 +414,14 @@ public class GameController extends JFrame implements GameListener {
         lines.add(String.valueOf(getCurrentPlayer()));
         return lines;
     }
+    private void redWin() {
+        System.out.println("red win!");
+        showMessageDialog(this, "Red wins!");
+    }
 
+    private void blueWin() {
+        System.out.println("blue win!");
+        showMessageDialog(this, "Blue wins!");
+    }
 
 }

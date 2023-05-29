@@ -140,7 +140,7 @@ public class Chessboard {
         return chessPiece;
     }
 
-    private void setChessPiece(ChessboardPoint point, ChessPiece chessPiece) {
+    public void setChessPiece(ChessboardPoint point, ChessPiece chessPiece) {
         getGridAt(point).setPiece(chessPiece);
     }
 

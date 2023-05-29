@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccf53ce4-c0ca-4607-9b1f-c8457eb2b7f4" name="Changes" comment="完成了关于展示是txt文本的准备" />
+    <list default="true" id="ccf53ce4-c0ca-4607-9b1f-c8457eb2b7f4" name="Changes" comment="完成了关于展示是txt文本的准备">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessDemo/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChessDemo/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Chessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Chessboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ChessGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ChessGameFrame.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685282987910</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完成了关于展示是txt文本的准备">
+      <created>1685283188805</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685283188806</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
