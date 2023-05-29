@@ -53,7 +53,7 @@ public class ChessGameFrame extends JFrame {
         addLoadButton();
         addSaveButton();
         addUndoButton();
-        addChangeBackgroundButton();
+        //addChangeBackgroundButton();
         Image image=new ImageIcon("resource/img.png").getImage();
         image=image.getScaledInstance(1100,810,Image.SCALE_DEFAULT);
         ImageIcon icon=new ImageIcon(image);
@@ -162,7 +162,15 @@ public class ChessGameFrame extends JFrame {
      */
 
     private void addRestartButton() {
-        JButton RestartButton = new JButton("restart");
+        //lxx
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File("resource\\restart-button.tif"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JButton RestartButton = new JButton(new ImageIcon(image));
         RestartButton.addActionListener((e) -> {
             JOptionPane.showMessageDialog(this, "Let us restart the game!");
             controller.restartGame();
@@ -173,8 +181,16 @@ public class ChessGameFrame extends JFrame {
         add(RestartButton);
     }
         private void addUndoButton() {
-        JButton UndoButton = new JButton("undo");
-        UndoButton.addActionListener((e) -> {
+            //lxx
+            BufferedImage image = null;
+            try {
+                image = ImageIO.read(new File("resource\\regret-button.tif"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            JButton UndoButton = new JButton(new ImageIcon(image));
+
+            UndoButton.addActionListener((e) -> {
             int result = JOptionPane.showConfirmDialog(null, "Are you sure ?", "Confirm", JOptionPane.YES_NO_CANCEL_OPTION);
            if(result==JOptionPane.YES_OPTION){
                controller.UndoGame();
@@ -189,7 +205,15 @@ public class ChessGameFrame extends JFrame {
 
 
     private void addLoadButton() {
-        JButton LoadButton = new JButton("Load");
+        //lxx
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File("resource\\load-button.tif"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JButton LoadButton = new JButton(new ImageIcon(image));
         LoadButton.setLocation(HEIGHT, HEIGHT / 10 + 200);
         LoadButton.setSize(200, 60);
         LoadButton.setFont(new Font("Rockwell", Font.BOLD, 20));
@@ -202,7 +226,14 @@ public class ChessGameFrame extends JFrame {
         });
     }
     private void addSaveButton() {
-        JButton SaveButton = new JButton("Save");
+        //lxx
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new File("resource\\save-button.tif"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JButton SaveButton = new JButton(new ImageIcon(image));
         SaveButton.setLocation(HEIGHT, HEIGHT / 10 + 280);
         SaveButton.setSize(200, 60);
         SaveButton.setFont(new Font("Rockwell", Font.BOLD, 20));
